@@ -1,3 +1,4 @@
+<script>
 class BinaryTree{
 	constructor(){
     	this.root = null;
@@ -53,7 +54,35 @@ class BinaryTree{
     }
     
     remove( data ){
-    
+    	if( !this.root ){
+            return null;
+        }
+        
+        let current = this.root;
+        let parent = null;
+        while( current ){
+        	
+        	if( data < current.data ){
+            	parent  = current;
+            	current = current.left;
+            }else if ( data > current.data ){
+            	parent  = current;
+            	current = current.right;
+            }else{
+            	if( parent.left === current ){
+                	parent.left = current.left;
+                }
+                
+                if( parent.right === current ){
+                	parent.right = current.right;
+                }
+                
+                current = null;
+                return;
+            }
+        }
+        
+        return null;
     }
     
     search( data ){
@@ -96,8 +125,13 @@ tree.add(8);
 tree.add(7);
 
 tree.add(20);
+tree.add(27);
+tree.add(29);
+tree.add(31);
+tree.add(16);
 tree.add(15);
 tree.add(14);
+tree.add(13);
 tree.add(12);
 tree.add(5);
 tree.add(4);
@@ -105,6 +139,11 @@ tree.add(3);
 tree.add(2);
 tree.add(1);
 
+//console.log( tree );
+//console.log( tree.search( 5 ) );
+tree.remove( 3 );
+tree.remove( 14 );
+tree.remove( 29 );
+tree.remove( 55 );
 console.log( tree );
-console.log( tree.search( 5 ) );
-
+</script>
