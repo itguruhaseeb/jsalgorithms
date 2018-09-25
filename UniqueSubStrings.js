@@ -42,7 +42,8 @@ console.log( subStr( "abcd", 3 ) );
 console.log( subStr( "abacuusttlvbnc", 3 ) );
 console.log( subStr( "abcadcacacaca", 3 ) );
 
-<h2>Output</h2>
+Output:
+======================
 ["abc", "bcb", "cba"]
 ["abc", "bcd"]
 ["aba", "bac", "acu", "ust", "tlv", "lvb", "vbn", "bnc"]
