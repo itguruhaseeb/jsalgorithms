@@ -183,5 +183,5 @@ document.write( "<h4 style='display:inline;'>Depth First ::: </h4>" + bst.traver
 
 </script>
 
-<h2>Playground</h2>
+**Playground**
 https://js.do/jsninja/binarysearchtree
