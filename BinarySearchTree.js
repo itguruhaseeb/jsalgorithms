@@ -182,6 +182,3 @@ document.write( "<h4 style='display:inline;'>Breadth First ::: </h4>" + bst.trav
 document.write( "<h4 style='display:inline;'>Depth First ::: </h4>" + bst.traverseDF() );
 
 </script>
-
-**Playground**
-https://js.do/jsninja/binarysearchtree
