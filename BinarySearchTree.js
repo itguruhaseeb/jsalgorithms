@@ -1,7 +1,57 @@
 <script>
-class BinaryTree{
+class BinarySearchTree{
 	constructor(){
     	this.root = null;
+    }
+    
+    treeWidth(){
+    	//TBD
+    }
+    
+    traverseBF(){
+    	let elems  = [this.root];
+        let values = [];
+        
+        while( elems.length > 0 ){
+        	let current = elems.shift();
+            if( current ){
+            	
+            	if( current.left ){
+                	elems.push( current.left );
+                }
+                
+                if( current.right ){
+                	 elems.push( current.right );
+                }
+                
+                values.push( current.data );
+            }
+        }
+        
+        return values;
+    }
+    
+    traverseDF(){
+    	let elems  = [this.root];
+        let values = [];
+        
+        while( elems.length > 0 ){
+        	let current = elems.shift();
+            if( current ){
+            	
+            	if( current.left ){
+                	elems.unshift( current.left );
+                }
+                
+                if( current.right ){
+                	 elems.unshift( current.right );
+                }
+                
+                values.push( current.data );
+            }
+        }
+        
+        return values;
     }
     
     add( data ){
@@ -59,30 +109,23 @@ class BinaryTree{
         }
         
         let current = this.root;
-        let parent = null;
+        let parentNode = null;
         while( current ){
-        	
         	if( data < current.data ){
-            	parent  = current;
             	current = current.left;
+                parent  = current;
             }else if ( data > current.data ){
-            	parent  = current;
             	current = current.right;
+                parent  = current;
             }else{
-            	if( parent.left === current ){
-                	parent.left = current.left;
+            	
+                if( !current.left && !current.right  ){
+                	console.log( parentNode );
                 }
-                
-                if( parent.right === current ){
-                	parent.right = current.right;
-                }
-                
-                current = null;
-                return;
+            
+            	break;
             }
         }
-        
-        return null;
     }
     
     search( data ){
@@ -118,32 +161,27 @@ class Node{
     }
 }
 
-let tree = new BinaryTree();
-tree.add(10);
-tree.add(9);
-tree.add(8);
-tree.add(7);
+let bst = new BinarySearchTree();
+bst.add(10);
+bst.add(9);
+bst.add(8);
+bst.add(7);
 
-tree.add(20);
-tree.add(27);
-tree.add(29);
-tree.add(31);
-tree.add(16);
-tree.add(15);
-tree.add(14);
-tree.add(13);
-tree.add(12);
-tree.add(5);
-tree.add(4);
-tree.add(3);
-tree.add(2);
-tree.add(1);
+bst.add(20);
+bst.add(15);
+bst.add(14);
+bst.add(12);
+bst.add(5);
+bst.add(4);
+bst.add(3);
+bst.add(2);
+bst.add(1);
 
-//console.log( tree );
-//console.log( tree.search( 5 ) );
-tree.remove( 3 );
-tree.remove( 14 );
-tree.remove( 29 );
-tree.remove( 55 );
-console.log( tree );
+document.write("<h1>Binary Search Tree Traversal</h1>");
+document.write( "<h4 style='display:inline;'>Breadth First ::: </h4>" + bst.traverseBF() + "<br/><br/>" );
+document.write( "<h4 style='display:inline;'>Depth First ::: </h4>" + bst.traverseDF() );
+
 </script>
+
+<h2>Playground</h2>
+https://js.do/jsninja/binarysearchtree
