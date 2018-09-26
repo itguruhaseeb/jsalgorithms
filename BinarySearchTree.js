@@ -181,4 +181,9 @@ document.write("<h1>Binary Search Tree Traversal</h1>");
 document.write( "<h4 style='display:inline;'>Breadth First ::: </h4>" + bst.traverseBF() + "<br/><br/>" );
 document.write( "<h4 style='display:inline;'>Depth First ::: </h4>" + bst.traverseDF() );
 
+
+//Playground
+//===========
+//https://js.do/jsninja/binarysearchtree
 </script>
+
